@@ -105,5 +105,5 @@ If seemingly nothing happens after you typed `@k(hx)`, then everything
 is fine.
 You are now ready to use `hex`.
 
-
+`@k(TO BE CONTINUED ..)`
 
