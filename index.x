@@ -83,7 +83,7 @@ build `hex`.
 * Build `hex`
 * and install it at the default location
 
-The default location to install `hex` will be the `s{bin}` directory in
+The default location to install `hex` will be the `@s(bin)` directory in
 your home directory.
 If you want to use a different directory please adjust the directory in
 the `@s(install)` target of the `@s(Makefile)`.
