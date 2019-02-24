@@ -28,28 +28,23 @@ Any kind of software
 Why should you use a new system for writing software?
 </li></ul>
 </div>
+</div>
 <p>There are a lot of tools and mechanisms for writing software.
 A lot of programming languages, IDEs, editors and build systems are
 available.
 A lot of them even for free.
 So why should you use another one?
 </p>
-</div>
 <p>A short answer would be: To improve the maintainability of your software.
 </p>
-</div>
 <p>With <code><span class="var">hex</span></code> you make your code better understandable.
 </p>
-</div>
 <p>With <code><span class="var">hex</span></code> you find errors in your code faster.
 </p>
-</div>
 <p>With <code><span class="var">hex</span></code> you make your code extendable by a broader group of people.
 </p>
-</div>
 <p>All of this won't affect the executable size or final performance.
 </p>
-</div>
 </div>
 <h1>Content</h1>
 <div class="slides">
@@ -86,10 +81,10 @@ Building and installing <code><span class="var">hex</span></code>
 What is needed for building <code><span class="var">hex</span></code>?
 </li></ul>
 </div>
+</div>
 <p>To build <code><span class="var">hex</span></code> you need a C++ compiler that supports the 2014 Standard of
 C++.
 </p>
-</div>
 <p><code><span class="var">hex</span></code> itself can generate and process files in a wide range of
 programming languages.
 Projects exist that use C, ARM-Assembler, C++, JavaScript, HTML, CSS.
@@ -97,29 +92,23 @@ But <code><span class="var">hex</span></code> itself is written in C++.
 So you need a C++ compiler to build <code><span class="var">hex</span></code>.
 Apart from the Compiler you only need the <code><span class="var">make</span></code> tool.
 </p>
-</div>
 <p>Also you need a console where you can run commands in.
 I assume a unix-like environment like Linux, macOS or Windows with the
 Ubuntu extensions or Cygwin.
 If you can run the following command
 </p>
-</div>
 <p><code><span class="keyword">c++</span> --<span class="var">version</span></code>
 </p>
-</div>
 <p>and you do not get an error message but some kind of version information,
 you are probably fine.
 </p>
-</div>
 <p>On my computer, it outputs:
 </p>
-</div>
 <p><code><span class="str">c++ (Raspbian 6.3.0-18+rpi1+deb9u1@) 6.3.0 20170516</span></code>
 <code><span class="str">Copyright (C@) 2016 Free Software Foundation, Inc.</span></code>
 <code><span class="str">This is free software; see the source for copying conditions.  There is NO</span></code>
 <code><span class="str">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span></code>
 </p>
-</div>
 </div>
 <h2>Cloning the Repository</h2>
 <div class="slides">
@@ -130,26 +119,22 @@ you are probably fine.
 Loading the Repository from <code><span class="var">github</span>.<span class="var">com</span></code>
 </li></ul>
 </div>
+</div>
 <p>The source-code for building <code><span class="var">hex</span></code> is hosted on <code><span class="var">github</span>.<span class="var">com</span></code> at
 </p>
-</div>
 <p><code><span class="str">https://github.com/itmm/hex/</span></code>
 </p>
-</div>
 <p>You can either download an archive with all the files or you can clone
 the repository.
 To do the latter you must have the tool <code><span class="var">git</span></code> installed and call on
 the command line
 </p>
-</div>
 <p><code><span class="keyword">git</span> <span class="keyword">clone</span> <span class="str">https://github.com/itmm/hex.git</span></code>
 </p>
-</div>
 <p>Then you should have a new directory <code><span class="str">hex</span></code> with all the source-code
 inside. Especially there should be a file <code><span class="str">hx.cpp</span></code> that you need to
 build <code><span class="var">hex</span></code>.
 </p>
-</div>
 </div>
 <h2>Building and installing hex</h2>
 <div class="slides">
@@ -162,37 +147,104 @@ Build <code><span class="var">hex</span></code>
 and install it at the default location
 </li></ul>
 </div>
+</div>
 <p>The default location to install <code><span class="var">hex</span></code> will be the <code><span class="var">s</span>{<span class="var">bin</span>}</code> directory in
 your home directory.
 If you want to use a different directory please adjust the directory in
 the <code><span class="str">install</span></code> target of the <code><span class="str">Makefile</span></code>.
 </p>
-</div>
 <p>Running
 </p>
-</div>
 <p><code><span class="keyword">make</span> <span class="str">install</span></code>
 </p>
-</div>
 <p>should build the executable and install the two files <code><span class="var">hx</span></code> and
 <code><span class="var">hx</span>-<span class="var">files</span>.<span class="var">sh</span></code> into the binary directory.
 If you have this binary directory in your search <code><span class="var">$PATH</span></code>, then you can
 invoke <code><span class="var">hex</span></code> by typing
 </p>
-</div>
 <p><code><span class="keyword">hx</span></code>
 </p>
-</div>
 <p>Normally you do not need to provide any parameters.
 </p>
-</div>
 <p>If seemingly nothing happens after you typed <code><span class="keyword">hx</span></code>, then everything
 is fine.
 You are now ready to use <code><span class="var">hex</span></code>.
 </p>
-</div>
-<p><code><span class="keyword">TO BE CONTINUED ..</span></code>
+<p>If I did something wrong with the repository you may not be able to build
+<code><span class="var">hex</span></code> directly.
+</p>
+<p>That is the case if some hex-files are newer than the generated <code><span class="var">hx</span>.<span class="var">cpp</span></code>.
+In that situation the <code><span class="str">Makefile</span></code> wants to run <code><span class="var">hx</span></code> first, but it is
+not installed yet.
+</p>
+<p>Normally it is enough to make <code><span class="var">hx</span>.<span class="var">cpp</span></code> newer by opening it in a text
+editor and save it again, or by typing
+</p>
+<p><code><span class="keyword">touch</span> <span class="str">hx.cpp</span></code>
+</p>
+<p>on the console.
+Then the <code><span class="keyword">make</span> <span class="str">install</span></code> incantation should work.
 </p>
 </div>
+<h1>A Password Generator</h1>
+<div class="slides">
+<div><div>
+<h1>A Password Generator</h1>
+</div>
+</div>
+</div>
+<p><code><span class="var">hex</span></code> processes files with the extension <code>.<span class="var">x</span></code>.
+These files contain anything that is need to either generate a HTML
+representation of the project and to extract all source files.
+</p>
+<p>These <code>.<span class="var">x</span></code>-files form a bundle or container that contain everything in
+a simple text format that can be edited with any editor.
+</p>
+<p>If you invoke <code><span class="var">hx</span></code> it will process all <code>.<span class="var">x</span></code>-files that are passed as
+arguments.
+If no files are passed, it will process the file <code><span class="var">index</span>.<span class="var">x</span></code> if it exists.
+</p>
+<p>The file should start with a header, that describes, what the program
+will do.
+</p>
+<p>Oriented at Markdown and Asciidoc, the header starts with a <code>#</code>.
+</p>
+<p>You can start the file <code><span class="var">index</span>.<span class="var">x</span></code> as
+</p>
+<div class="slides">
+<div><div>
+<code>
+<span class="keyword">#</span> <span class="str">pwg - a password generator</span><br/>
+<span class="keyword">*</span> <span class="str">Generates random passwords</span><br/>
+<span class="keyword">*</span> <span class="str">Number of upper case, lower case,</span><br/>
+<span class="in1"></span><span class="str">digits, and special chars can be</span><br/>
+<span class="in1"></span><span class="str">passed as arguments</span><br/>
+</code></div>
+</div>
+</div>
+<p>In addition to the header the file also contains a note list.
+These notes are started with an asterisk and will be added as reader
+notes to the slides.
+</p>
+<p>Now run <code><span class="keyword">hx</span></code> again.
+</p>
+<p>Apart from the <code>.<span class="var">x</span></code>-file there is now also an <code><span class="var">index</span>.<span class="var">html</span></code>.
+If you open it, it is not very pretty.
+Because the needed Stylesheet file is not present.
+</p>
+<p>Simply make a new <code><span class="var">slides</span></code> directory and copy the files from
+</p>
+<p><code><span class="var">https</span>:<span class="var">github</span>.<span class="var">com</span>/<span class="var">itmm</span>/<span class="var">slides</span>/</code>
+</p>
+<p>into it.
+</p>
+<p>If you are planning to make your own <code><span class="var">git</span></code> repository for this project,
+you can also add the slides project as a submodule.
+</p>
+<p>Now you should see a nice start page that is formatted in the same way as
+this documentation: this document is also using the <code><span class="var">slides</span></code> repository.
+</p>
+<p><code><span class="keyword">TO BE CONTINUED ..</span></code>
+</p>
 </body>
 </html>

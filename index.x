@@ -105,5 +105,70 @@ If seemingly nothing happens after you typed `@k(hx)`, then everything
 is fine.
 You are now ready to use `hex`.
 
+If I did something wrong with the repository you may not be able to build
+`hex` directly.
+
+That is the case if some hex-files are newer than the generated `hx.cpp`.
+In that situation the `@s(Makefile)` wants to run `hx` first, but it is
+not installed yet.
+
+Normally it is enough to make `hx.cpp` newer by opening it in a text
+editor and save it again, or by typing
+
+`@k(touch) @s(hx.cpp)`
+
+on the console.
+Then the `@k(make) @s(install)` incantation should work.
+
+# A Password Generator
+
+`hex` processes files with the extension `.x`.
+These files contain anything that is need to either generate a HTML
+representation of the project and to extract all source files.
+
+These `.x`-files form a bundle or container that contain everything in
+a simple text format that can be edited with any editor.
+
+If you invoke `hx` it will process all `.x`-files that are passed as
+arguments.
+If no files are passed, it will process the file `index.x` if it exists.
+
+The file should start with a header, that describes, what the program
+will do.
+
+Oriented at Markdown and Asciidoc, the header starts with a `#`.
+
+You can start the file `index.x` as
+
+```
+@k(#) @s(pwg - a password generator)
+@k(*) @s(Generates random passwords)
+@k(*) @s(Number of upper case, lower case,)
+	@s(digits, and special chars can be)
+	@s(passed as arguments)
+```
+
+In addition to the header the file also contains a note list.
+These notes are started with an asterisk and will be added as reader
+notes to the slides.
+
+Now run `@k(hx)` again.
+
+Apart from the `.x`-file there is now also an `index.html`.
+If you open it, it is not very pretty.
+Because the needed Stylesheet file is not present.
+
+Simply make a new `slides` directory and copy the files from
+
+`https:github.com/itmm/slides/`
+
+into it.
+
+If you are planning to make your own `git` repository for this project,
+you can also add the slides project as a submodule.
+
+Now you should see a nice start page that is formatted in the same way as
+this documentation: this document is also using the `slides` repository.
+
 `@k(TO BE CONTINUED ..)`
 
