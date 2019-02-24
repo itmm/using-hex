@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Using hex</title>
+<link rel="stylesheet" type="text/css" href="slides/slides.css"></head>
+<body>
+<h1>Using hex</h1>
+<div class="slides">
+<div><div>
+<h1>Using hex</h1>
+</div>
+<ul><li>
+This tutorial introduces the usage of <code><span class="var">hex</span></code> on a concrete example
+</li><li>
+<code><span class="var">hex</span></code> is a new system for writing software
+</li><li>
+Any kind of software
+</li></ul>
+</div>
+</div>
+<h1>Motivation</h1>
+<div class="slides">
+<div><div>
+<h1>Motivation</h1>
+</div>
+<ul><li>
+Why should you use a new system for writing software?
+</li></ul>
+</div>
+<p>There are a lot of tools and mechanisms for writing software.
+A lot of programming languages, IDEs, editors and build systems are
+available.
+A lot of them even for free.
+So why should you use another one?
+</p>
+</div>
+<p>A short answer would be: To improve the maintainability of your software.
+</p>
+</div>
+<p>With <code><span class="var">hex</span></code> you make your code better understandable.
+</p>
+</div>
+<p>With <code><span class="var">hex</span></code> you find errors in your code faster.
+</p>
+</div>
+<p>With <code><span class="var">hex</span></code> you make your code extendable by a broader group of people.
+</p>
+</div>
+<p>All of this won't affect the executable size or final performance.
+</p>
+</div>
+</div>
+<h1>Content</h1>
+<div class="slides">
+<div><div>
+<h1>Content</h1>
+</div>
+<ul><li>
+Install <code><span class="var">hex</span></code>
+</li><li>
+Write a small program in <code><span class="var">hex</span></code>
+</li></ul>
+</div>
+</div>
+<h1>Installing hex</h1>
+<div class="slides">
+<div><div>
+<h1>Installing hex</h1>
+</div>
+<ul><li>
+Prerequisites
+</li><li>
+Cloning the Repository
+</li><li>
+Building and installing <code><span class="var">hex</span></code>
+</li></ul>
+</div>
+</div>
+<h2>Prerequisites for hex</h2>
+<div class="slides">
+<div><div>
+<h2>Prerequisites for hex</h2>
+</div>
+<ul><li>
+What is needed for building <code><span class="var">hex</span></code>?
+</li></ul>
+</div>
+<p>To build <code><span class="var">hex</span></code> you need a C++ compiler that supports the 2014 Standard of
+C++.
+</p>
+</div>
+<p><code><span class="var">hex</span></code> itself can generate and process files in a wide range of
+programming languages.
+Projects exist that use C, ARM-Assembler, C++, JavaScript, HTML, CSS.
+But <code><span class="var">hex</span></code> itself is written in C++.
+So you need a C++ compiler to build <code><span class="var">hex</span></code>.
+Apart from the Compiler you only need the <code><span class="var">make</span></code> tool.
+</p>
+</div>
+<p>Also you need a console where you can run commands in.
+I assume a unix-like environment like Linux, macOS or Windows with the
+Ubuntu extensions or Cygwin.
+If you can run the following command
+</p>
+</div>
+<p><code><span class="keyword">c++</span> --<span class="var">version</span></code>
+</p>
+</div>
+<p>and you do not get an error message but some kind of version information,
+you are probably fine.
+</p>
+</div>
+<p>On my computer, it outputs:
+</p>
+</div>
+<p><code><span class="str">c++ (Raspbian 6.3.0-18+rpi1+deb9u1@) 6.3.0 20170516</span></code>
+<code><span class="str">Copyright (C@) 2016 Free Software Foundation, Inc.</span></code>
+<code><span class="str">This is free software; see the source for copying conditions.  There is NO</span></code>
+<code><span class="str">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span></code>
+</p>
+</div>
+</div>
+<h2>Cloning the Repository</h2>
+<div class="slides">
+<div><div>
+<h2>Cloning the Repository</h2>
+</div>
+<ul><li>
+Loading the Repository from <code><span class="var">github</span>.<span class="var">com</span></code>
+</li></ul>
+</div>
+<p>The source-code for building <code><span class="var">hex</span></code> is hosted on <code><span class="var">github</span>.<span class="var">com</span></code> at
+</p>
+</div>
+<p><code><span class="str">https://github.com/itmm/hex/</span></code>
+</p>
+</div>
+<p>You can either download an archive with all the files or you can clone
+the repository.
+To do the latter you must have the tool <code><span class="var">git</span></code> installed and call on
+the command line
+</p>
+</div>
+<p><code><span class="keyword">git</span> <span class="keyword">clone</span> <span class="str">https://github.com/itmm/hex.git</span></code>
+</p>
+</div>
+<p>Then you should have a new directory <code><span class="str">hex</span></code> with all the source-code
+inside. Especially there should be a file <code><span class="str">hx.cpp</span></code> that you need to
+build <code><span class="var">hex</span></code>.
+</p>
+</div>
+</div>
+<h2>Building and installing hex</h2>
+<div class="slides">
+<div><div>
+<h2>Building and installing hex</h2>
+</div>
+<ul><li>
+Build <code><span class="var">hex</span></code>
+</li><li>
+and install it at the default location
+</li></ul>
+</div>
+<p>The default location to install <code><span class="var">hex</span></code> will be the <code><span class="var">s</span>{<span class="var">bin</span>}</code> directory in
+your home directory.
+If you want to use a different directory please adjust the directory in
+the <code><span class="str">install</span></code> target of the <code><span class="str">Makefile</span></code>.
+</p>
+</div>
+<p>Running
+</p>
+</div>
+<p><code><span class="keyword">make</span> <span class="str">install</span></code>
+</p>
+</div>
+<p>should build the executable and install the two files <code><span class="var">hx</span></code> and
+<code><span class="var">hx</span>-<span class="var">files</span>.<span class="var">sh</span></code> into the binary directory.
+If you have this binary directory in your search <code><span class="var">$PATH</span></code>, then you can
+invoke <code><span class="var">hex</span></code> by typing
+</p>
+</div>
+<p><code><span class="keyword">hx</span></code>
+</p>
+</div>
+<p>Normally you do not need to provide any parameters.
+</p>
+</div>
+<p>If seemingly nothing happens after you typed <code><span class="keyword">hx</span></code>, then everything
+is fine.
+You are now ready to use <code><span class="var">hex</span></code>.
+</p>
+</div>
+</body>
+</html>
