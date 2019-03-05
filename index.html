@@ -104,8 +104,8 @@ you are probably fine.
 </p>
 <p>On my computer, it outputs:
 </p>
-<p><code><span class="str">c++ (Raspbian 6.3.0-18+rpi1+deb9u1@) 6.3.0 20170516</span></code>
-<code><span class="str">Copyright (C@) 2016 Free Software Foundation, Inc.</span></code>
+<p><code><span class="str">c++ (Raspbian 6.3.0-18+rpi1+deb9u1) 6.3.0 20170516</span></code>
+<code><span class="str">Copyright (C) 2016 Free Software Foundation, Inc.</span></code>
 <code><span class="str">This is free software; see the source for copying conditions.  There is NO</span></code>
 <code><span class="str">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span></code>
 </p>
@@ -207,14 +207,14 @@ If no files are passed, it will process the file <code><span class="var">index</
 <p>The file should start with a header, that describes, what the program
 will do.
 </p>
-<p>Oriented at Markdown and Asciidoc, the header starts with a <code>#</code>.
+<p>Oriented at Markdown and Asciidoc, the header starts with a <code><span class="keyword">#</span></code>.
 </p>
 <p>You can start the file <code><span class="var">index</span>.<span class="var">x</span></code> as
 </p>
 <div class="slides">
 <div><div>
 <code>
-<span class="keyword">#</span> <span class="str">pwg - a password generator</span><br/>
+<span class="keyword">#</span> <span class="str">pwg – a password generator</span><br/>
 <span class="keyword">*</span> <span class="str">Generates random passwords</span><br/>
 <span class="keyword">*</span> <span class="str">Number of upper case, lower case,</span><br/>
 <span class="in1"></span><span class="str">digits, and special chars can be</span><br/>
@@ -234,7 +234,7 @@ Because the needed Stylesheet file is not present.
 </p>
 <p>Simply make a new <code><span class="var">slides</span></code> directory and copy the files from
 </p>
-<p><code><span class="var">https</span>:<span class="var">github</span>.<span class="var">com</span>/<span class="var">itmm</span>/<span class="var">slides</span>/</code>
+<p><code><span class="var">https</span>://<span class="var">github</span>.<span class="var">com</span>/<span class="var">itmm</span>/<span class="var">slides</span>/</code>
 </p>
 <p>into it.
 </p>
@@ -244,6 +244,48 @@ you can also add the slides project as a submodule.
 <p>Now you should see a nice start page that is formatted in the same way as
 this documentation: this document is also using the <code><span class="var">slides</span></code> repository.
 </p>
+</div>
+<h1>Building an executable</h1>
+<div class="slides">
+<div><div>
+<h1>Building an executable</h1>
+</div>
+</div>
+</div>
+<p>To build a first executable a new paragraph is added to the file.
+It must be separated from the enumeration by at least one empty line.
+</p>
+<p>The following paragraph will execute the C++ compiler with the generated
+content:
+</p>
+<div class="slides">
+<div><div>
+<code>
+<span class="macro">@Def(<span class="name">| c++ -x c++ -o pwg -</span>)</span><br/>
+<span class="in1"></span><span class="macro">@put(<span class="name">parts</span>)</span><br/>
+<span class="macro">@end(<span class="name">| c++ -x c++ -o pwg -</span>)</span><br/>
+</code></div>
+</div>
+</div>
+<p>The paragraph defines a new fragment.
+A fragment is everything after an opening command like <code><span class="keyword">@Def</span>(...)</code>
+until the matching <code><span class="keyword">@end</span>(...)</code>.
+</p>
+<p>The name of the fragement is in parenthesis after the command name.
+It must match the name of the <code><span class="keyword">@end</span></code> command.
+</p>
+<div class="slides">
+<div><div>
+<code>
+<span class="macro">@def(<span class="name">parts</span>)</span><br/>
+<span class="in1"></span><span class="keyword">#include</span> <span class="str">&lt;iostream&gt;</span><br/>
+<span class="in1"></span><span class="type">int</span> <span class="fn">main</span>() {<br/>
+<span class="in2"></span><span class="type">std</span>::<span class="var">cout</span> &lt;&lt; <span class="str">"first binary\n"</span>;<br/>
+<span class="in1"></span>}<br/>
+<span class="macro">@end(<span class="name">parts</span>)</span><br/>
+</code></div>
+</div>
+</div>
 <p><code><span class="keyword">TO BE CONTINUED ..</span></code>
 </p>
 </body>

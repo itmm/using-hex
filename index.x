@@ -141,7 +141,7 @@ Oriented at Markdown and Asciidoc, the header starts with a `#`.
 You can start the file `index.x` as
 
 ```
-@k(#) @s(pwg - a password generator)
+@k(#) @s(pwg – a password generator)
 @k(*) @s(Generates random passwords)
 @k(*) @s(Number of upper case, lower case,)
 	@s(digits, and special chars can be)
@@ -160,7 +160,7 @@ Because the needed Stylesheet file is not present.
 
 Simply make a new `slides` directory and copy the files from
 
-`https:github.com/itmm/slides/`
+`https://github.com/itmm/slides/`
 
 into it.
 
@@ -169,6 +169,36 @@ you can also add the slides project as a submodule.
 
 Now you should see a nice start page that is formatted in the same way as
 this documentation: this document is also using the `slides` repository.
+
+# Building an executable
+
+To build a first executable a new paragraph is added to the file.
+It must be separated from the enumeration by at least one empty line.
+
+The following paragraph will execute the C++ compiler with the generated
+content:
+
+```
+@Def(| c++ -x c++ -o pwg -)
+	@put(parts)
+@end(| c++ -x c++ -o pwg -)
+```
+
+The paragraph defines a new fragment.
+A fragment is everything after an opening command like `@k(@Def)(...)`
+until the matching `@k(@end)(...)`.
+
+The name of the fragement is in parenthesis after the command name.
+It must match the name of the `@k(@end)` command.
+
+```
+@def(parts)
+	#include @s(<iostream>)
+	int main() {
+		std::cout << "first binary\n";
+	}
+@end(parts)
+```
 
 `@k(TO BE CONTINUED ..)`
 
